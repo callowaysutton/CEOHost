@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="description" content="ifykyk">
+	<script src='js/lettercrap.js'></script>
 	<title>Ceo of Sex</title>
 	<style>
 		footer {
@@ -13,14 +14,14 @@
 
 		body {
 			white-space: pre-line;
-			margin-top: 0px;
-			padding: 0;
 			background: black;
+			margin: 0px;
+			padding: 0px;
 		}
 
 		pre {
-			margin-top: 0px;
-			padding-top: 0px;
+			margin: 0px;
+			padding: 0px;
 			text-align: center;
 			color: white;
 			font-size: 1.5vh;
@@ -41,11 +42,27 @@
 			width: 100%;
 			font-size: 1.5vh;
 		}
+
+		[data-letter-crap] {
+			white-space: pre;
+			overflow: hidden;
+			font-size: 10px;
+			line-height: 10px;
+			font-family: monospace;
+			padding: 0;
+		}
+
+
+		[data-letter-crap] {
+			margin: auto;
+			color: white;
+		}
 	</style>
 </head>
 
 <body>
-	<pre>                                        
+	<pre>
+		<div data-letter-crap='head.png' data-lettercrap-letters=';|!!::' style='width: 40%' data-lettercrap-aspect-ratio='0.5'>                                        
 @@@@@@@  @@@  @@@  @@@@@@@@      @@@@@@@  @@@@@@@@   @@@@@@   
 @@@@@@@  @@@  @@@  @@@@@@@@     @@@@@@@@  @@@@@@@@  @@@@@@@@  
   @@!    @@!  @@@  @@!          !@@       @@!       @@!  @@@  
@@ -68,16 +85,14 @@
   :!:  !:!  :!:              !:!   :!:       :!:  !:!  
   ::::: ::   ::          :::: ::    :: ::::   ::  :::  
    : :  :    :           :: : :    : :: ::    :   ::   
-
-
-
+</div>
 <div id="elm1" class="header">_.--.__.-'""`-.__.--.__.-'""`-.__.--.__.-'""`-.__.--.__.-'""`-._</div>
 <div id="elm2" class="header">"`--'""`-.__.-'""`--'""`-.__.-'""`--'""`-.__.-'""`--'""`-.__.-'"</div>
 <div id="elm3" class="header">You should turn on JavaScript :(</div>
 
 
-Welcome to the homepage for CEOs of Sex. Just a childish domain I 
-thought was funny. Now I can use it on business cards and such to
+Welcome to the homepage of the CEOs of Sex. Just a childish domain
+I thought was funny. Now I can use it on business cards and such to
 assert how much of a professional I am in any given the field.
 
 Of course, I won't really be using this much outside of my personal
@@ -97,47 +112,48 @@ list over <a href="#">here</a>.
 </body>
 <script>
 	var w = window.innerWidth;
-	if(w < 1000){	var length = w/10; } else { var length = 80;}
+	if (w < 1000) { var length = w / 10; } else { var length = 80; }
 
-yValueToChar = function(yValue){
-  let loop = '_,---`""""`---.';
-  
-  if (yValue > 1)
-    yValue = 1;
-  if (yValue < -1)
-    yValue = -1;
-  
-  yValue = (yValue * (loop.length/2)) + Math.ceil(loop.length/2);
-  yValue = Math.floor(yValue) % loop.length
-  
-  return loop[yValue];
-}
+	yValueToChar = function (yValue) {
+		let loop = '_,---`""""`---.';
 
-function renderSinWave(amp, frequency, x, step, length){
-  let wave = "";
-  
-  for (let steps = 0; steps <= length; steps++){
-    let xVal = x + (steps * step);
+		if (yValue > 1)
+			yValue = 1;
+		if (yValue < -1)
+			yValue = -1;
 
-    wave += yValueToChar(amp * Math.sin(frequency * xVal));
-  }
-  
-  return wave;
-}
+		yValue = (yValue * (loop.length / 2)) + Math.ceil(loop.length / 2);
+		yValue = Math.floor(yValue) % loop.length
 
-let elm1 = document.getElementById("elm1");
-let elm2 = document.getElementById("elm2");
-let elm3 = document.getElementById("elm3");
+		return loop[yValue];
+	}
+
+	function renderSinWave(amp, frequency, x, step, length) {
+		let wave = "";
+
+		for (let steps = 0; steps <= length; steps++) {
+			let xVal = x + (steps * step);
+
+			wave += yValueToChar(amp * Math.sin(frequency * xVal));
+		}
+
+		return wave;
+	}
+
+	let elm1 = document.getElementById("elm1");
+	let elm2 = document.getElementById("elm2");
+	let elm3 = document.getElementById("elm3");
 
 
-let t = 0;
+	let t = 0;
 
-setInterval(function(){
-   elm1.innerHTML = renderSinWave(1, 1, t, Math.PI/8, length);
-  elm2.innerHTML = renderSinWave(1, Math.PI, -t, Math.PI/8, length);
-  elm3.innerHTML = renderSinWave(1, -1, t, Math.PI/8, length);
-   t+=Math.PI/8;
-}, 1000/10)
+	setInterval(function () {
+		elm1.innerHTML = renderSinWave(1, 1, t, Math.PI / 8, length);
+		elm2.innerHTML = renderSinWave(1, Math.PI, -t, Math.PI / 8, length);
+		elm3.innerHTML = renderSinWave(1, -1, t, Math.PI / 8, length);
+		t += Math.PI / 8;
+	}, 1000 / 10)
 
 </script>
+
 </html>
