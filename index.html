@@ -21,7 +21,7 @@
 		img.onload = function() {
 			render(element, img, null);
 		}
-		img.src = element.getAttribute('data-letter-crap');
+		img.src = element.getAttribute('data-messy');
 	}
 	
 	function getTextContentWithImageAtSize(image, width, height, existingText, words, letters) {
@@ -68,13 +68,13 @@
 	}
 	
 	function render(element, image, prev) {
-		if (element.hasAttribute('data-lettercrap-aspect-ratio')) {
-			var aspect = parseFloat(element.getAttribute('data-lettercrap-aspect-ratio'));
+		if (element.hasAttribute('aspect-ratio')) {
+			var aspect = parseFloat(element.getAttribute('aspect-ratio'));
 			element.style.height = element.clientWidth * aspect + 'px';
 		}
 		var text;
-		var words = element.hasAttribute('data-lettercrap-words') ? element.getAttribute('data-lettercrap-words').split(' ') : [];
-		var letters = element.hasAttribute('data-lettercrap-letters') ? element.getAttribute('data-lettercrap-letters') : '0101010101_';
+		var words = element.hasAttribute('data-words') ? element.getAttribute('data-words').split(' ') : [];
+		var letters = element.hasAttribute('data-letters') ? element.getAttribute('data-letters') : '0101010101_';
 		if (prev && prev.width == element.clientWidth && prev.height == element.clientHeight) {
 			text = getTextContentWithImageAtSize(image, element.clientWidth, element.clientHeight, prev.text, words, letters);
 		} else {
@@ -88,7 +88,7 @@
 	}
 	
 	document.addEventListener('DOMContentLoaded', function() {
-		var elements = document.querySelectorAll('[data-letter-crap]');
+		var elements = document.querySelectorAll('[data-messy]');
 		for (var i=0; i<elements.length; i++) {
 			initElement(elements[i]);
 		}
@@ -133,7 +133,7 @@
 			font-size: 1.5vh;
 		}
 
-		[data-letter-crap] {
+		[data-messy] {
 			white-space: pre;
 			overflow: hidden;
 			font-size: 10px;
@@ -143,7 +143,7 @@
 		}
 
 
-		[data-letter-crap] {
+		[data-messy] {
 			margin: auto;
 			color: white;
 		}
@@ -152,7 +152,7 @@
 
 <body>
 	<pre>
-		<div data-letter-crap='head.png' data-lettercrap-letters=';|!/!:\:.,<>' style='width: 40%' data-lettercrap-aspect-ratio='0.5'>                                        
+		<div data-messy='head.png' data-letters=';|!/!:\:.,<>' style='width: 40%' aspect-ratio='0.5'>                                        
 @@@@@@@  @@@  @@@  @@@@@@@@      @@@@@@@  @@@@@@@@   @@@@@@   
 @@@@@@@  @@@  @@@  @@@@@@@@     @@@@@@@@  @@@@@@@@  @@@@@@@@  
   @@!    @@!  @@@  @@!          !@@       @@!       @@!  @@@  
